@@ -1,0 +1,7 @@
+development: &default
+  adapter: postgresql
+  database: kissr_development
+
+test: &test
+  <<: *default
+  database: kissr_test
