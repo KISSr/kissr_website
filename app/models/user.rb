@@ -11,7 +11,10 @@ class User < ActiveRecord::Base
     HTTParty.post(
       "#{ENV['DROPBOX_S3_WEBHOOK_URL']}users",
         query: {
-          id: dropbox_user_id
+          id: dropbox_user_id,
+          user: {
+            token: token
+          }
         }
     )
   end
