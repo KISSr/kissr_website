@@ -1,0 +1,5 @@
+-if current_user.nil? then
+  .user-menu
+    %a{:href => sites_path, :class =>"btn btn-default" } Sign In
+-else
+  = link_to "Sign Out", sign_out_path, class: 'btn btn-default pull-right'

@@ -1,13 +1,44 @@
 !!!
 %html
   %head
-    %title NewKissr
-    = stylesheet_link_tag 'application', media: 'all'
-    = javascript_include_tag 'application'
-    = csrf_meta_tags
-  %body
-    %header
-      - if signed_in?
-        Hi, User
-        = link_to 'Sign Out', sign_out_path
-    = yield
+    %title KISSr - Dropbox Web Hosting
+    %meta{:name=>"description",:value=>"KISSr enables you to host websites out of your Dropbox"}
+    %meta{:name=>"keywords",:value=>"kissr,hosting,web,web hosting,dropbox"}
+    =javascript_include_tag "http://js.pusherapp.com/1.9/pusher.min.js"
+    = stylesheet_link_tag 'application.css', :media => 'screen, projection'
+    = javascript_include_tag "https://js.stripe.com/v1/"
+    = tag :meta, :name => "stripe-key", :content => ENV["STRIPE_PUBLIC_KEY"]
+
+    = javascript_include_tag :application
+    = render "layouts/google_analytics"
+    = yield :head
+    = csrf_meta_tag
+  %body{:class => "#{controller_name}-#{action_name}"}
+    .container
+      %header.clearfix
+        .row
+          .col-xs-12
+            %h1 KISS#{content_tag :span, 'r', class: 'r'}
+            = render "shared/nav"
+      -#%nav
+        %ul
+          %li
+            %a{href: '/'} Home
+          %li
+            %a{href: '/'} Blog
+          %li
+            %a{href: 'https://vimeo.com/user11705925/videos'} Sceencasts
+          %li
+            %a{href: '/'} FAQ
+      .row
+        .col-xs-12
+          - flash.each do |type, message|
+            %div.alert.fade.in{ "data-alert" => "alert", :class => twitterized_flash_type(type) }
+              %a.close{:href => "#"} ×
+              %p
+                = raw message
+
+          = yield
+    -# =render "shared/footer"
+    =render "shared/intercom"
+

@@ -1,1 +1,40 @@
-= link_to 'login', oauth.start
+= content_for :head do
+  :coffeescript
+    $("#site_domain_attributes_domain").keyup -> domainChange()
+.hero
+  %h1 KISSr is Simple Dropbox Web Hosting.
+-#.col-sm-5.col-sm-offset-3
+.row
+= form_for (@site || Site.new), html: { class: "form-horizontal" } do |f|
+  -if @site && @site.errors.any?
+    -@site.errors.full_messages.each do |msg|
+      %p.alert.alert-box= msg
+  %fieldset
+    .form-group
+      .col-sm-10
+        .input-group.input-group-lg
+          .input-group-addon http://
+          = f.text_field :name, placeholder: "mysite", class: 'form-control'
+          .input-group-addon .kissr.com/
+        %span.help-block
+      .col-sm-2
+        = f.submit "Try it!", :class => "btn btn-primary btn-lg try-it"
+.row
+  .col-sm-4
+    %h3
+      %span.glyphicon.glyphicon-cloud-upload
+      Upload with Dropbox
+    %p
+      When you update files in Dropbox the changes will be copied to KISSr's webservers.
+  .col-sm-4
+    %h3
+      %span.glyphicon.glyphicon-flash
+      Unlimited Everything
+    %p
+      KISSr offers unlimted bandwidth storage. KISSr supports custom domains.
+  .col-sm-4
+    %h3
+      %span.glyphicon.glyphicon-thumbs-up
+      Affordable
+    %p
+      KISSr is free for 1 prototype site. KISSr costs #{content_tag :span, '$5 per month', class: 'label label-success'} for unlimited everything.

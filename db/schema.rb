@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20140322232138) do
 
   create_table "sites", force: true do |t|
     t.integer  "user_id"
-    t.string   "domain"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20140322232138) do
   add_index "sites", ["user_id"], name: "index_sites_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
+    t.string   "cursor"
     t.string   "dropbox_user_id"
     t.string   "token"
     t.datetime "created_at"

@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   def create
     login
+    create_site
 
     redirect_to sites_path
   end
@@ -9,6 +10,15 @@ class SessionsController < ApplicationController
     session.delete(:user_id)
 
     redirect_to root_path
+  end
+
+  def create_site
+    if session[:site_name]
+      Site.create(
+        user: current_user,
+        name: session.delete(:site_name)
+      )
+    end
   end
 
   def login

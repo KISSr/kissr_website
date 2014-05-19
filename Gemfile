@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'bootstrap-sass'
+gem 'bourbon'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'dropbox-sdk', require: 'dropbox_sdk'
 gem 'haml'
