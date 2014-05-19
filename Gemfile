@@ -5,6 +5,7 @@ gem 'bourbon'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'dropbox-sdk', require: 'dropbox_sdk'
 gem 'haml'
+gem 'httparty'
 gem 'dotenv-rails'
 gem 'high_voltage'
 gem 'jquery-rails'
@@ -16,3 +17,9 @@ gem 'rails_12factor'
 gem 'sass-rails', '~> 4.0.0'
 gem 'simple_form'
 gem 'uglifier', '>= 1.3.0'
+
+group :test do
+  gem 'webmock'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
