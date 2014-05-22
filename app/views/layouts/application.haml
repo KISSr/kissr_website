@@ -10,7 +10,6 @@
     = tag :meta, :name => "stripe-key", :content => ENV["STRIPE_PUBLIC_KEY"]
 
     = javascript_include_tag :application
-    = render "layouts/google_analytics"
     = yield :head
     = csrf_meta_tag
   %body{:class => "#{controller_name}-#{action_name}"}

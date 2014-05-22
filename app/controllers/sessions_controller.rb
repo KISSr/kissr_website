@@ -36,7 +36,9 @@ class SessionsController < ApplicationController
     access_token, user_id, url_state = oauth.finish(params)
 
     user = User.where(dropbox_user_id: user_id).first_or_create
-    user.update_attributes(token: access_token)
+    user.update_attributes(
+      token: access_token
+    )
     user
   end
 end
