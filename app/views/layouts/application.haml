@@ -18,7 +18,9 @@
       %header.clearfix
         .row
           .col-xs-12
-            %h1 KISS#{content_tag :span, 'r', class: 'r'}
+            %h1
+              = link_to root_path do
+                KISS#{content_tag :span, 'r', class: 'r'}
             = render "shared/nav"
       -#%nav
         %ul

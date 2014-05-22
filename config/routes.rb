@@ -4,4 +4,5 @@ NewKissr::Application.routes.draw do
   resources :sites, only: [:index, :new, :create, :destroy]
   resource :subscription, only: [:create, :new]
   root 'pages#show', id: 'home'
+  get 'update', to: 'pages#show', id: 'update'
 end
