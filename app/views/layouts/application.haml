@@ -32,6 +32,8 @@
             %a{href: '/'} FAQ
       .row
         .col-xs-12
+          -# - unless current_user.subscriber?
+            -#
           - flash.each do |type, message|
             %div.alert.fade.in{ "data-alert" => "alert", :class => twitterized_flash_type(type) }
               %a.close{:href => "#"} ×

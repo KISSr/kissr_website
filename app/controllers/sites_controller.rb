@@ -1,4 +1,5 @@
 class SitesController < ApplicationController
+  before_filter :redirect_unless_subscriber, only: :new
   before_filter :authorize
 
   def index
@@ -10,9 +11,13 @@ class SitesController < ApplicationController
   end
 
   def create
-    Site.create(site_params.merge(user: current_user))
+    @site = Site.new(site_params.merge(user: current_user))
 
-    redirect_to sites_path
+    if @site.save
+      redirect_to sites_path
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -33,6 +38,12 @@ class SitesController < ApplicationController
       end
 
       redirect_to oauth.start
+    end
+  end
+
+  def redirect_unless_subscriber
+    unless current_user.subscriber? || current_user.sites.empty?
+      redirect_to sites_path
     end
   end
 end

@@ -1,3 +1,15 @@
-= simple_form_for @site do |f|
-  = f.input :name
-  = f.submit
+.alert.alert-info
+  If you want to use a custom domain name see the #{link_to 'Documentation', '#'}.
+.row
+  = form_for @site, html: { class: 'form form-inline form-error', role: 'form'} do |f|
+    .col-xs-9
+      .form-group{class: ('has-error' if @site.errors.any?) }
+        .input-group.input-group-lg
+          .input-group-addon http://
+          = f.text_field :name, placeholder: "mysite", class: 'form-control'
+          .input-group-addon .kissr.com/
+        - if @site.errors.any?
+          .help-block
+            = @site.errors.full_messages.to_sentence
+    .col-xs-3
+      = f.submit class: 'btn btn-primary btn-lg pull-right'

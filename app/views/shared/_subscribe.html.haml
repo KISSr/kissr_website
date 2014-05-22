@@ -1,0 +1,3 @@
+- unless current_user.subscriber?
+  .alert.alert-danger
+    You currently using the prototype plan which only allows you to create 1 site and serve 1000 requests per month. #{link_to 'Upgrade Now', new_subscription_path}.

@@ -1,0 +1,23 @@
+=simple_form_for :subscription, url: subscription_path do |f|
+  = f.hidden_field :stripe_token
+  = f.hidden_field :site_id, value: params[:site_id]
+  #stripe_error
+    %noscript JavaScript is not enabled and is required for this form. First enable it in your web browser settings.
+  .row
+    .col-xs-6.col-xs-offset-3
+      .alert.alert-info
+        You will be bill $5 monthly for unlimited sites, storage and bandwitdth. Cancel anytime.
+  .row
+    .col-xs-6.col-xs-offset-3
+      .form-group
+        = f.input :card_number, required: false
+  .row
+    .col-xs-3.col-xs-offset-3
+      = f.input :card_code, required: false, label: "Security Code on Card (CVV)"
+    .col-xs-3
+      = f.input :expiration_date, required: false, placeholder: '01 / 15'
+  .row
+    .col-xs-6.col-xs-offset-3
+      .form-actions
+        = f.submit "Purchase", :class => "btn btn-primary btn-lg pull-right"
+

@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :cursor
       t.string :dropbox_user_id
       t.string :token
+      t.string :stripe_token
 
       t.timestamps
     end

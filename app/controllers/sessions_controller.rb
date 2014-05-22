@@ -1,9 +1,12 @@
 class SessionsController < ApplicationController
   def create
     login
-    create_site
 
-    redirect_to sites_path
+    if session[:site_name]
+      create_site
+    else
+      redirect_to sites_path
+    end
   end
 
   def destroy
@@ -13,11 +16,15 @@ class SessionsController < ApplicationController
   end
 
   def create_site
-    if session[:site_name]
-      Site.create(
-        user: current_user,
-        name: session.delete(:site_name)
-      )
+    @site = Site.create(
+      user: current_user,
+      name: session.delete(:site_name)
+    )
+
+    if @site.save
+      redirect_to sites_path
+    else
+      render 'sites/new'
     end
   end
 

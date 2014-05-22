@@ -15,7 +15,8 @@ gem 'pry'
 gem 'rails', '4.0.3'
 gem 'rails_12factor'
 gem 'sass-rails', '~> 4.0.0'
-gem 'simple_form'
+gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form'
+gem 'stripe'
 gem 'uglifier', '>= 1.3.0'
 
 group :test do

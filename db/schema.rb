@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20140322232138) do
     t.string   "cursor"
     t.string   "dropbox_user_id"
     t.string   "token"
+    t.string   "stripe_token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
