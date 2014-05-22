@@ -11,14 +11,14 @@
       %p.alert.alert-box= msg
   %fieldset
     .form-group
-      .col-sm-10
+      .col-xs-9
         .input-group.input-group-lg
           .input-group-addon http://
           = f.text_field :name, placeholder: "mysite", class: 'form-control'
           .input-group-addon .kissr.com/
         %span.help-block
-      .col-sm-2
-        = f.submit "Try it!", :class => "btn btn-primary btn-lg try-it"
+      .col-xs-3
+        = f.submit "Create Site!", :class => "btn btn-primary btn-lg try-it pull-right"
 .row
   .col-sm-4
     %h3
