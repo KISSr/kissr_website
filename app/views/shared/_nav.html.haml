@@ -1,5 +1,10 @@
--if current_user.nil? then
-  .user-menu
-    %a{:href => sites_path, :class =>"btn btn-default" } Sign In
--else
-  = link_to "Sign Out", sign_out_path, class: 'btn btn-default pull-right'
+.user-menu
+  -#%a{:href => sites_path } Sites
+  -#%a{:href => sites_path } Blog
+  -#%action_name{:href => sites_path } Documentation
+  -if current_user.nil? then
+    %a{:href => sites_path } Sign Up
+    %a{:href => sites_path } Sign In
+  -else
+    = link_to "Sign Out", sign_out_path, class: 'pull-right'
+    = link_to "Account", sign_out_path, class: 'pull-right'

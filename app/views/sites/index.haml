@@ -11,7 +11,7 @@
             = "http://#{site.name}.kissr.com/"
             = link_to site_path(site), method: 'delete', class: 'btn btn-danger btn-circle' do
               .span.glyphicon.glyphicon-remove
-            = link_to "http://#{site.name}.kissr.com/", method: 'delete', class: 'btn btn-default btn-circle', target: :_blank do
+            = link_to "http://#{site.name}.kissr.com/", class: 'btn btn-default btn-circle', target: :_blank do
               .span.glyphicon.glyphicon.glyphicon-share
 %p.clearfix
   -if current_user.subscriber?

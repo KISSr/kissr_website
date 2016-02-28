@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %title KISSr - Dropbox Web Hosting
+    %meta{:name=>"description",:value=>"KISSr enables you to host websites out of your Dropbox"}
+    %meta{:name=>"keywords",:value=>"kissr,hosting,web,web hosting,dropbox"}
+    =javascript_include_tag "http://js.pusherapp.com/1.9/pusher.min.js"
+    = stylesheet_link_tag 'application.css', :media => 'screen, projection'
+    = javascript_include_tag "https://js.stripe.com/v1/"
+    = tag :meta, :name => "stripe-key", :content => ENV["STRIPE_PUBLIC_KEY"]
+
+    = javascript_include_tag :application
+    = yield :head
+    = csrf_meta_tag
+  %body{:class => "#{controller_name}-#{action_name} home"}
+    = yield
+    = render "shared/google_analytics"
+    = render "shared/intercom"
+
