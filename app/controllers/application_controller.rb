@@ -6,6 +6,17 @@ class ApplicationController < ActionController::Base
 
   helper_method :oauth, :signed_in?, :current_user
 
+  def authorize
+    unless signed_in?
+
+      if params[:site]
+        session[:site_name] = params[:site][:name]
+      end
+
+      redirect_to oauth.start
+    end
+  end
+
   def oauth
     DropboxOAuth2Flow.new(
       ENV['DROPBOX_KEY'],

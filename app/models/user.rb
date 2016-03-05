@@ -9,22 +9,34 @@ class User < ActiveRecord::Base
   end
 
   def subscriber?
-    stripe_token.present?
+    stripe_subscription_id.present?
   end
 
   def subscribe(subscription)
-    self.stripe_token = subscription[:stripe_token]
+    customer = Stripe::Customer.create(
+      :card => subscription[:stripe_token],
+      :plan => "unlimited",
+    )
 
-    create_plan
+    self.stripe_customer_id = customer.id
+    self.stripe_subscription_id = customer.subscriptions.data.last.id
 
     save
   end
 
-  def create_plan
-    customer = Stripe::Customer.create(
-      :card => stripe_token,
-      :plan => "unlimited",
-    )
+  def unsubscribe
+    Stripe::Customer
+      .retrieve(stripe_customer_id)
+      .subscriptions
+      .retrieve(stripe_subscription_id)
+      .delete
+
+    delete_all_but_one_site
+    update(stripe_subscription_id: nil)
+  end
+
+  def delete_all_but_one_site
+    sites.where.not(id: sites.last).destroy_all
   end
 
   def setup_s3_webhooks

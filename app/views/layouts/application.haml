@@ -36,7 +36,7 @@
           -# - unless current_user.subscriber?
             -#
           - flash.each do |type, message|
-            %div.alert.fade.in{ "data-alert" => "alert", :class => twitterized_flash_type(type) }
+            %div.alert.fade.in{ "data-alert" => "alert", :class => bootsrap_flash_class(type) }
               %a.close{:href => "#"} ×
               %p
                 = raw message

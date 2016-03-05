@@ -1,0 +1,7 @@
+%h1 Subscription
+- if current_user.subscriber?
+  %p Clicking unsubscribe downgrade you to the prototype plan and you will no logner be billed.
+  = link_to "Unsubscribe", subscription_path, method: "delete", class: "btn btn-primary btn-lg"
+- else
+  %p Subscribe for unlimited sites, storage and bandwidth: $5/mo, cancel anytime.
+  = link_to "Subscribe", new_subscription_path, class: "btn btn-primary btn-lg"
