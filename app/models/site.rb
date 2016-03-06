@@ -1,13 +1,9 @@
 class Site < ActiveRecord::Base
   belongs_to :user
-  validates :name, presence: true, uniqueness: true
+  validates :domain, presence: true, uniqueness: true
 
   after_save :update_s3_webhooks
   after_save :create_dropbox_folder
-
-  def domain
-    "#{name}.kissr.com"
-  end
 
   def create_dropbox_folder
     Dir["#{Rails.root}/templates/default/**/**"].each do |file|

@@ -1,13 +1,12 @@
 .alert.alert-info
-  If you want to use a custom domain name see the #{link_to 'Documentation', '#'}.
+  Domains that end in "kissr.com" are free. For custom domains (ie www.example.com) see: #{link_to "Setting Up a Custom Domain", "#"}.
 .row
   = form_for @site, html: { class: 'form form-inline form-error', role: 'form'} do |f|
     .col-xs-9
       .form-group{class: ('has-error' if @site.errors.any?) }
         .input-group.input-group-lg
           .input-group-addon http://
-          = f.text_field :name, placeholder: "mysite", class: 'form-control'
-          .input-group-addon .kissr.com/
+          = f.text_field :name, placeholder: "example.kissr.com", class: 'form-control'
         - if @site.errors.any?
           .help-block
             = @site.errors.full_messages.to_sentence
