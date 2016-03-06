@@ -27,7 +27,7 @@ class SitesController < ApplicationController
   end
 
   def site_params
-    params.require(:site).permit(:name)
+    params.require(:site).permit(:domain)
   end
 
   def redirect_unless_subscriber

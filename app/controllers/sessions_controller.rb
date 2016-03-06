@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def create
     login
 
-    if session[:site_name]
+    if session[:site_domain]
       create_site
     else
       redirect_to sites_path
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
   def create_site
     @site = Site.create(
       user: current_user,
-      name: session.delete(:site_name)
+      domain: session.delete(:site_domain)
     )
 
     if @site.save

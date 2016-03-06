@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     unless signed_in?
 
       if params[:site]
-        session[:site_name] = params[:site][:name]
+        session[:site_domain] = params[:site][:domain]
       end
 
       redirect_to oauth.start

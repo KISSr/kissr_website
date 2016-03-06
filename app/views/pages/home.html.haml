@@ -25,6 +25,7 @@
     -#.col-sm-5.col-sm-offset-3
     .row
     = form_for (@site || Site.new), html: { class: "form-horizontal" } do |f|
+      = f.hidden_field :domain
       -if @site && @site.errors.any?
         -@site.errors.full_messages.each do |msg|
           %p.alert.alert-box= msg
@@ -33,7 +34,7 @@
           .col-xs-9
             .input-group.input-group-lg
               .input-group-addon http://
-              = f.text_field :name, placeholder: "mysite", class: 'form-control'
+              = text_field_tag :name, nil, placeholder: "mysite", class: 'form-control'
               .input-group-addon .kissr.com/
             %span.help-block
           .col-xs-3

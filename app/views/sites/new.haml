@@ -6,7 +6,7 @@
       .form-group{class: ('has-error' if @site.errors.any?) }
         .input-group.input-group-lg
           .input-group-addon http://
-          = f.text_field :name, placeholder: "example.kissr.com", class: 'form-control'
+          = f.text_field :domain, placeholder: "example.kissr.com", class: 'form-control'
         - if @site.errors.any?
           .help-block
             = @site.errors.full_messages.to_sentence
