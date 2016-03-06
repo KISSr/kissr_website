@@ -1,0 +1,77 @@
+%h1 Features
+%p There are none. KISSr is for hosting CSS and HTML and javascript only. To setup a custom 404 error page you can add a file named <strong>404.html</strong> to the top level of your site.
+
+%p Here are some alternative services if you need additional features:
+%table.table
+  %tr
+    %th Feature
+    %th Service
+  %tr
+    %td Simple CMS so clients can update content
+    %td
+      = link_to "cloudcannon", "http://cloudcannon.com/", target: "_blank"
+  %tr
+    %td Dropbox hosting with custom mime types and redirects
+    %td
+      = link_to "Site 44", "http://www.site44.com/", target: "_blank"
+  %tr
+    %td Web Hosting from GitHub
+    %td
+      = link_to "paperplane.io", "https://www.paperplane.io/", target: "_blank"
+  %tr
+    %td Wordpress Hosting
+    %td
+      = link_to "WP Engine", "http://www.wpengine.com", target: "_blank"
+  %tr
+    %td Hosted on a CDN and/or via SSL
+    %td
+      = link_to "surge", "https://surge.sh/", target: "_blank"
+  %tr
+    %td Virtual Private Servers
+    %td
+      = link_to "Digital Ocean", "https://www.digitalocean.com/", target: "_blank"
+%a{name: "custom-domains"}
+%h1 Pricing
+%p There is one paid plan. It costs <strong>$5 per month</strong> for unlimited sites, storage and bandwidth. There is also a prototype plan which only allows you to have one site and is limted to 1000 page views per month.
+%h1 Setting Up a Custom Domain
+%ol
+  %li Choose a registrar to register your domain with. Our favorite is #{link_to "NameCheap", "https://www.namecheap.com/"}. The rest of these instructions assume you're using NameCheap.
+  %li Add a redirect record from <strong>@</strong> to <strong>www</strong>
+  %li Add a new CNAME record
+  %li Set the hostname of <strong>www</strong> to
+%div.alert.alert-info
+  <strong>server.kissr.com</strong>
+%p That should look like this:
+= image_tag "cname.png"
+%p If you want to set up a naked domain ie <strong>example.com</strong> (without the www) and your DNS provider doesn't support APEX domains you can point an <strong>A Record</strong> directly to the following IP address:
+%div.alert.alert-info
+  <strong>52.73.131.11</strong>
+%h2 Instructions for Adding CNAMEs with Other DNS Registrars
+%ul
+  %li= link_to "1&1", "https://help.1and1.com/domains-c36931/manage-domains-c79822/dns-c37586/enter-a-cname-for-your-subdomain-a643600.html", target: "_blank"
+  %li= link_to "Amazon Route53", "http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html#CNAMEFormat", target: "_blank"
+  %li= link_to "Bluehost", "https://my.bluehost.com/cgi/help/559", target: "_blank"
+  %li= link_to "CloudFlare", "https://support.cloudflare.com/hc/en-us/articles/200169046-How-do-I-add-a-CNAME-record-", target: "_blank"
+  %li= link_to "CPanel", "https://documentation.cpanel.net/display/ALD/Advanced+DNS+Zone+Editor", target: "_blank"
+  %li= link_to "Digital Ocean", "https://www.digitalocean.com/community/tutorials/how-to-set-up-a-host-name-with-digitalocean#cname-records", target: "_blank"
+  %li= link_to "DNSimple", "http://support.dnsimple.com/articles/advanced-editor/", target: "_blank"
+  %li= link_to "domain discount 24", "http://enwiki.domaindiscount24.com/index.php/Faq:cname", target: "_blank"
+
+  %li= link_to "Domain.com", "http://www.domain.com/knowledgebase/beta/article.bml?ArticleID=1682", target: "_blank"
+  %li= link_to "Google Domains", "https://support.google.com/domains/answer/3290350?hl=en&amp;vid=1-635797029920152600-3792870146", target: "_blank"
+  %li= link_to "Dreamhost", "http://wiki.dreamhost.com/CNAME_record", target: "_blank"
+  %li= link_to "CNAME using Dynadot", "https://www.dynadot.com/community/help/question/create-CNAME", target: "_blank"
+  %li= link_to "Freeparking", "http://www.freeparking.co.nz/support/technical-guides/managing-dns-records#main", target: "_blank"
+  %li= link_to "Gandi.net", "http://wiki.gandi.net/en/dns/zone/cname-record", target: "_blank"
+  %li= link_to "GoDaddy", "https://support.godaddy.com/help/article/680/managing-dns-for-your-domain-names?countrysite=ca#cnames", target: "_blank"
+  %li= link_to "HostMonster", "https://my.hostmonster.com/cgi/help/cname", target: "_blank"
+  %li= link_to "Hover", "https://help.hover.com/entries/21204757-How-to-Edit-DNS-records-A-CNAME-MX-TXT-and-SRV", target: "_blank"
+  %li= link_to "iwantmyname", "https://help.iwantmyname.com/customer/portal/articles/209023-how-do-i-add-a-cname-dns-record-", target: "_blank"
+  %li= link_to "Linode", "https://www.linode.com/docs/networking/dns/dns-manager#the-dns-manager-page", target: "_blank"
+  %li= link_to "Name.com", "https://www.name.com/support/articles/205516858-DNS-Record-Types", target: "_blank"
+  %li= link_to "Namecheap", "https://www.namecheap.com/support/knowledgebase/article.aspx/9646/10/how-can-i-set-up-a-cname-record-for-my-domain", target: "_blank"
+  %li= link_to "Solutions", "http://www.networksolutions.com/support/how-to-manage-advanced-dns-records/", target: "_blank"
+  %li= link_to "Nomeo", "http://www.nomeo.be/over-nomeo/nieuws/cnames-op-de-domeinnaam-root-nu-mogelijk.aspx", target: "_blank"
+  %li= link_to "Pop.co", "https://github.com/kennethormandy/a-record/issues/10#issue-107371194", target: "_blank"
+  %li= link_to "Domains", "https://www.uniteddomains.com/faq/", target: "_blank"
+  %li= link_to "WebFaction", "http://docs.webfaction.com/user-guide/domains.html#configuring-cname-records", target: "_blank"

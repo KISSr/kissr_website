@@ -1,10 +1,11 @@
 .user-menu
-  -#%a{:href => sites_path } Sites
   -#%a{:href => sites_path } Blog
   -#%action_name{:href => sites_path } Documentation
+  %a{:href => page_path(id: :documentation) } Documentation
   -if current_user.nil? then
     %a{:href => sites_path } Sign Up
     %a{:href => sites_path } Sign In
   -else
     = link_to "Sign Out", sign_out_path, class: 'pull-right'
     = link_to "Account", account_path, class: 'pull-right'
+    %a{:href => sites_path } Sites
