@@ -89,6 +89,8 @@ GEM
     json (1.8.1)
     jwt (0.1.8)
       multi_json (>= 1.5)
+    lodash-rails (4.5.1)
+      railties (>= 3.1)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.5.4)
@@ -206,6 +208,7 @@ DEPENDENCIES
   httparty
   inline_svg
   jquery-rails
+  lodash-rails
   oauth2
   pg
   pry

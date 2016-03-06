@@ -14,4 +14,5 @@
 //= require jquery.payment
 //= require bootstrap
 //= require jquery_ujs
+//= require lodash
 //= require_tree .
