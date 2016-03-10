@@ -16,6 +16,11 @@ class User < ActiveRecord::Base
     customer = Stripe::Customer.create(
       :card => subscription[:stripe_token],
       :plan => "unlimited",
+      :email => email,
+      :metadata => {
+        "User ID" => id,
+        "Name" => "#{first_name} #{last_name}",
+      }
     )
 
     self.stripe_customer_id = customer.id
