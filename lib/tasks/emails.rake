@@ -9,8 +9,8 @@ namespace :emails do
           last_name: dropbox_account_info["name_details"]["surname"],
           email: dropbox_account_info["email"],
         })
-      rescue DropboxAuthError
-        puts "Could not update user ##{user.id}"
+      rescue StandardError => e
+        puts "Could not update user ##{user.id}: #{e.message}"
       end
     end
   end
