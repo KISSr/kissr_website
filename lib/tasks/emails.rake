@@ -1,7 +1,7 @@
 namespace :emails do
   desc "backfill subscriptions"
   task backfill: :environment do
-    User.all.each do |user|
+    User.where("id > 4753").each do |user|
       begin
         dropbox_account_info = DropboxClient.new(user.token).account_info
         user.update_attributes({
