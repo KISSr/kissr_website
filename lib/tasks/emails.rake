@@ -16,7 +16,7 @@ namespace :emails do
   end
 
   task backfill_into_stripe: :environment do
-    User.where.not(stripe_user_id: nil).each do |user|
+    User.where.not(stripe_customer_id: nil).each do |user|
       stripe_customer = Stripe::Customer.retrieve(user.stripe_customer_id)
       stripe_customer.email = "#{user.email}"
       stripe_customer.metadata = {
