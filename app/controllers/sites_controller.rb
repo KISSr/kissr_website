@@ -1,6 +1,7 @@
 class SitesController < ApplicationController
   before_filter :redirect_unless_subscriber, only: :new
   before_filter :authorize
+  before_filter :block_cabal
 
   def index
     @sites = current_user.sites.all
@@ -33,6 +34,12 @@ class SitesController < ApplicationController
   def redirect_unless_subscriber
     unless current_user.subscriber? || current_user.sites.empty?
       redirect_to sites_path
+    end
+  end
+
+  def block_cabal
+    if current_user.email.include?("cabal")
+      return render "Authorities have ben notified", status: 500
     end
   end
 end
