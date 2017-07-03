@@ -38,8 +38,11 @@ class SitesController < ApplicationController
   end
 
   def block_cabal
-    if current_user.email.include?("cabal")
-      return render "Authorities have ben notified", status: 500
+    if current_user.email.include?("cabal") ||
+        current_user.email.include?("astridnatalia") ||
+        params[:site].try(:domain).try(:include?, "cabal") ||
+        params[:site].try(:domain).try(:include?, "playpark")
+      return render "Authorities have ben notified", status: 403
     end
   end
 end
