@@ -41,6 +41,7 @@ class SitesController < ApplicationController
     if current_user.email.include?("cabal") ||
         current_user.email.include?("astridnatalia") ||
         params[:site].try(:domain).try(:include?, "cabal") ||
+        params[:site].try(:domain).try(:include?, "bt-onway") ||
         params[:site].try(:domain).try(:include?, "playpark")
       return render "Authorities have ben notified", status: 403
     end
