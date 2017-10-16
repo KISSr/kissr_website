@@ -8,14 +8,15 @@ class Site < ActiveRecord::Base
   def create_dropbox_folder
     Dir["#{Rails.root}/templates/default/**/**"].each do |file|
       unless File.directory?(file)
-        destination_path= "#{domain}/#{file.sub("#{Rails.root}/templates/default","")}"
-        dropbox.put_file(destination_path, File.new(file,'r'))
+        destination_path= "/#{domain}/#{file.sub("#{Rails.root}/templates/default/","")}"
+        puts destination_path
+        dropbox.upload(destination_path, File.new(file,'r'))
       end
     end
   end
 
   def dropbox
-    @dropbox ||= DropboxClient.new(user.token)
+    @dropbox ||= DropboxApi::Client.new(user.token)
   end
 
   def update_s3_webhooks

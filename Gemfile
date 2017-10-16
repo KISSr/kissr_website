@@ -5,7 +5,7 @@ ruby "2.2.3"
 gem 'bootstrap-sass'
 gem 'bourbon'
 gem 'coffee-rails', '~> 4.0.0'
-gem 'dropbox-sdk', require: 'dropbox_sdk'
+gem 'dropbox_api'
 gem 'haml'
 gem 'httparty'
 gem 'dotenv-rails'

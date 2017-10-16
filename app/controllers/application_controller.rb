@@ -13,17 +13,17 @@ class ApplicationController < ActionController::Base
         session[:site_domain] = params[:site][:domain]
       end
 
-      redirect_to oauth.start
+      redirect_to "/dropbox/auth"
     end
   end
 
   def oauth
-    DropboxOAuth2Flow.new(
+    DropboxApi::Authenticator.new(
       ENV['DROPBOX_KEY'],
       ENV['DROPBOX_SECRET'],
-      redirect_url,
-      session,
-      :dropbox_auth_csrf_token
+      # redirect_url,
+      # session,
+      # :dropbox_auth_csrf_token
     )
   end
 
