@@ -10,7 +10,12 @@ class Site < ActiveRecord::Base
       unless File.directory?(file)
         destination_path= "/#{domain}/#{file.sub("#{Rails.root}/templates/default/","")}"
         puts destination_path
-        dropbox.upload(destination_path, File.new(file,'r'))
+        dropbox.upload(
+          destination_path,
+          File.new(file,'r'),
+          autorename: true,
+          mode: :add
+        )
       end
     end
   end
