@@ -118,6 +118,9 @@ GEM
       method_source (~> 0.8)
       slop (~> 3.4)
     rack (1.5.5)
+    rack-canonical-host (0.2.3)
+      addressable (> 0, < 3)
+      rack (>= 1.0.0, < 3)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.0.3)
@@ -211,6 +214,7 @@ DEPENDENCIES
   oauth2
   pg
   pry
+  rack-canonical-host
   rails (= 4.0.3)
   rails_12factor
   rspec-rails
@@ -220,5 +224,8 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   webmock
 
+RUBY VERSION
+   ruby 2.2.3p173
+
 BUNDLED WITH
-   1.11.2
+   1.16.0
