@@ -40,6 +40,8 @@ class SitesController < ApplicationController
   def block_cabal
     if current_user.email.include?("cabal") ||
         current_user.email.include?("astridnatalia") ||
+        current_user.email.include?("olegsergey@ro.ru") ||
+        params[:site].try(:domain).try(:include?, "eth.kissr.com") ||
         params[:site].try(:domain).try(:include?, "cabal") ||
         params[:site].try(:domain).try(:include?, "bt-onway") ||
         params[:site].try(:domain).try(:include?, "playpark")
