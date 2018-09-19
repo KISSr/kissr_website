@@ -39,6 +39,7 @@ class SitesController < ApplicationController
 
   def block_cabal
     if current_user.email.include?("cabal") ||
+        current_user.email.include?("post.cz") ||
         current_user.email.include?("astridnatalia") ||
         current_user.email.include?("peopplemail") ||
         current_user.email.include?("solacestore") ||
