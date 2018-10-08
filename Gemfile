@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby "2.2.3"
+ruby "2.5.1"
 
 gem 'bootstrap-sass'
 gem 'bourbon'
@@ -17,10 +17,10 @@ gem 'oauth2'
 gem 'pg'
 gem 'pry'
 gem 'rack-canonical-host'
-gem 'rails', '4.0.3'
+gem 'rails', '4.2.10'
 gem 'rails_12factor'
 gem 'sass-rails', '~> 4.0.0'
-gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form'
+gem 'simple_form', '~> 3.1.0.rc1'
 gem 'stripe'
 gem 'uglifier', '>= 1.3.0'
 

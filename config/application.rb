@@ -10,6 +10,20 @@ require "sprockets/railtie"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
+module Kernel
+  def gem_with_pg_fix(dep, *reqs)
+    if dep == "pg" && reqs == ["~> 0.15"]
+      reqs = ["~> 1.0"]
+    end
+    gem_without_pg_fix(dep, *reqs)
+  end
+
+  alias_method_chain :gem, :pg_fix
+end
+# pg 1.0 gem has removed these constants, but 4.2 ActiveRecord still expects them
+PGconn   = PG::Connection
+PGresult = PG::Result
+PGError  = PG::Error
 
 module NewKissr
   class Application < Rails::Application
