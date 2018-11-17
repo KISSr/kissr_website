@@ -49,10 +49,12 @@ class SitesController < ApplicationController
         current_user.email.include?("bobitana") ||
         current_user.email.include?("jesse") ||
         current_user.email.include?("olegsergey@ro.ru") ||
+        current_user.email.include?("mayparadis111@gmail.com") ||
         params[:site].try(:domain).try(:include?, "eth.kissr.com") ||
         params[:site].try(:domain).try(:include?, "eth") ||
         params[:site].try(:domain).try(:include?, "cabal") ||
         params[:site].try(:domain).try(:include?, "bt-onway") ||
+        params[:site].try(:domain).try(:include?, "shaparak") ||
         params[:site].try(:domain).try(:include?, "playpark")
       return render "Authorities have ben notified", status: 403
     end
