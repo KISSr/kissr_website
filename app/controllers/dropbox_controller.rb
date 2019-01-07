@@ -1,4 +1,6 @@
 class DropboxController < ApplicationController
+  before_filter :block_spam
+
   def auth
     if params[:site]
       session[:site_domain] = params[:site][:domain]
@@ -59,5 +61,11 @@ class DropboxController < ApplicationController
     authenticator.authorize_url(
       redirect_uri: dropbox_auth_callback_url
     )
+  end
+
+  def block_spam
+    if session[:site_domain].try(:include?, "pay")
+      return render text: "Authorities have ben notified", status: 403
+    end
   end
 end
