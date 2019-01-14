@@ -64,7 +64,8 @@ class DropboxController < ApplicationController
   end
 
   def block_spam
-    if session[:site_domain].try(:include?, "pay")
+    if session[:site_domain].try(:include?, "parak") ||
+      session[:site_domain].try(:include?, "pay")
       return render text: "Authorities have ben notified", status: 403
     end
   end
