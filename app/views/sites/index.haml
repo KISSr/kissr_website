@@ -10,9 +10,9 @@
           %td
             = "http://#{site.domain}/"
             = link_to site_path(site), method: 'delete', class: 'btn btn-danger btn-circle' do
-              .span.glyphicon.glyphicon-remove
+              .span.fa.fa-remove
             = link_to "http://#{site.domain}/", class: 'btn btn-default btn-circle', target: :_blank do
-              .span.glyphicon.glyphicon.glyphicon-share
+              .span.fa.fa-share
 %p.clearfix
   -if current_user.subscriber?
     = link_to 'New Site', new_site_path, class: 'btn btn-primary btn-lg pull-right'

@@ -4,6 +4,7 @@ class Site < ActiveRecord::Base
 
   after_save :update_s3_webhooks
   after_save :create_dropbox_folder
+  after_create :email_admin
 
   def create_dropbox_folder
     Dir["#{Rails.root}/templates/default/**/**"].each do |file|
@@ -18,6 +19,10 @@ class Site < ActiveRecord::Base
         )
       end
     end
+  end
+
+  def email_admin
+    AdminMailer.site_created_email(self).deliver_later
   end
 
   def dropbox

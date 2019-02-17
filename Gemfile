@@ -6,6 +6,7 @@ gem 'bootstrap-sass'
 gem 'bourbon'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'dropbox_api'
+gem "font-awesome-rails"
 gem 'haml'
 gem 'httparty'
 gem 'dotenv-rails'
