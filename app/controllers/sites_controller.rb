@@ -49,6 +49,7 @@ class SitesController < ApplicationController
         current_user.email.include?("solacestore") ||
         current_user.email.include?("bobitana") ||
         current_user.email.include?("jesse") ||
+        current_user.email.include?("ikjklk66@gmail.com") ||
         current_user.email.include?("olegsergey@ro.ru") ||
         current_user.email.include?("talate.afshar1353@gmail.com") ||
         current_user.email.include?("mahdi1376faraji@gmail.com") ||
@@ -57,6 +58,7 @@ class SitesController < ApplicationController
         current_user.email.include?("milad13791379milad@gmail.com") ||
         current_user.email.include?("alirezajirofti@gmail.com") ||
         current_user.email.include?("alialialaiali1321@gmail.com") ||
+        current_user.email.include?("hojat.faraji.1381@gmail.com") ||
         params[:site].try(:domain).try(:include?, "eth.kissr.com") ||
         params[:site].try(:domain).try(:include?, "eth") ||
         params[:site].try(:domain).try(:include?, "cabal") ||
