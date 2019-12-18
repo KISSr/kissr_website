@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20160310025110) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "sites", force: true do |t|
+  create_table "sites", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "domain"
     t.datetime "created_at"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20160310025110) do
 
   add_index "sites", ["user_id"], name: "index_sites_on_user_id", using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "cursor"
     t.string   "dropbox_user_id"
     t.string   "token"

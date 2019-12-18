@@ -4,6 +4,7 @@
     %title KISSr - Dropbox Web Hosting
     %meta{:name=>"description",:value=>"KISSr enables you to host websites out of your Dropbox"}
     %meta{:name=>"keywords",:value=>"kissr,hosting,web,web hosting,dropbox"}
+    = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap', :media => 'screen, projection'
     = stylesheet_link_tag 'application.css', :media => 'screen, projection'
     = javascript_include_tag "https://js.stripe.com/v1/"
     = tag :meta, :name => "stripe-key", :content => ENV["STRIPE_PUBLIC_KEY"]
@@ -15,5 +16,4 @@
     = yield
     = render "shared/google_analytics"
     = render "shared/intercom"
-    = render "shared/typekit"
 
