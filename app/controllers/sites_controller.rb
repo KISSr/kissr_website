@@ -64,6 +64,7 @@ class SitesController < ApplicationController
         current_user.email.include?("hojat.faraji.1381@gmail.com") ||
         current_user.email.include?("fezlopedare@gmail.com") ||
         current_user.email.include?("dren.h8@gmail.com") ||
+        current_user.email.include?("north8247@gmail.com") ||
         params[:site].try(:domain).try(:include?, "eth.kissr.com") ||
         params[:site].try(:domain).try(:include?, "eth") ||
         params[:site].try(:domain).try(:include?, "cabal") ||
