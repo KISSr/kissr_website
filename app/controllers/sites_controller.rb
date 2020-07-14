@@ -44,6 +44,7 @@ class SitesController < ApplicationController
         current_user.email.include?("ismmo@protonmail.com") ||
         current_user.email.include?("mail.ch") ||
         current_user.email.include?("astridnatalia") ||
+        current_user.email.include?("douglassoneriade@gmail.com") ||
         current_user.email.include?("peopplemail") ||
         current_user.email.include?("solacestore") ||
         current_user.email.include?("solacestore") ||
