@@ -40,34 +40,34 @@ class SitesController < ApplicationController
   def block_cabal
     if current_user.email.include?("cabal") ||
         current_user.email.include?("ali9hsali9hs@gmail.com") ||
-        current_user.email.include?("post.cz") ||
-        current_user.email.include?("ismmo@protonmail.com") ||
-        current_user.email.include?("mail.ch") ||
-        current_user.email.include?("astridnatalia") ||
-        current_user.email.include?("douglassoneriade@gmail.com") ||
-        current_user.email.include?("peopplemail") ||
-        current_user.email.include?("solacestore") ||
-        current_user.email.include?("solacestore") ||
-        current_user.email.include?("bobitana") ||
-        current_user.email.include?("jesse") ||
-        current_user.email.include?("killoki@yahoo.com") ||
-        current_user.email.include?("asdswdad@re.fgf") ||
-        current_user.email.include?("c031119@gmail.com") ||
-        current_user.email.include?("ikjklk66@gmail.com") ||
-        current_user.email.include?("olegsergey@ro.ru") ||
-        current_user.email.include?("talate.afshar1353@gmail.com") ||
-        current_user.email.include?("mahdi1376faraji@gmail.com") ||
-        current_user.email.include?("mayparadis111@gmail.com") ||
-        current_user.email.include?("saman137913791379@gmail.com") ||
-        current_user.email.include?("milad13791379milad@gmail.com") ||
-        current_user.email.include?("alirezajirofti@gmail.com") ||
         current_user.email.include?("alialialaiali1321@gmail.com") ||
+        current_user.email.include?("alirezajirofti@gmail.com") ||
+        current_user.email.include?("asdswdad@re.fgf") ||
+        current_user.email.include?("astridnatalia") ||
+        current_user.email.include?("bobitana") ||
+        current_user.email.include?("c031119@gmail.com") ||
+        current_user.email.include?("douglassoneriade@gmail.com") ||
+        current_user.email.include?("dren.h8@gmail.com") ||
+        current_user.email.include?("eyeemail.com") ||
+        current_user.email.include?("fezlopedare@gmail.com") ||
         current_user.email.include?("go.bicelandry@gmail.com") ||
         current_user.email.include?("hojat.faraji.1381@gmail.com") ||
-        current_user.email.include?("fezlopedare@gmail.com") ||
-        current_user.email.include?("dren.h8@gmail.com") ||
-        current_user.email.include?("north8247@gmail.com") ||
+        current_user.email.include?("ikjklk66@gmail.com") ||
+        current_user.email.include?("ismmo@protonmail.com") ||
+        current_user.email.include?("jesse") ||
+        current_user.email.include?("killoki@yahoo.com") ||
         current_user.email.include?("leiladarelle@gmail.com") ||
+        current_user.email.include?("mahdi1376faraji@gmail.com") ||
+        current_user.email.include?("mail.ch") ||
+        current_user.email.include?("mayparadis111@gmail.com") ||
+        current_user.email.include?("milad13791379milad@gmail.com") ||
+        current_user.email.include?("north8247@gmail.com") ||
+        current_user.email.include?("olegsergey@ro.ru") ||
+        current_user.email.include?("peopplemail") ||
+        current_user.email.include?("post.cz") ||
+        current_user.email.include?("saman137913791379@gmail.com") ||
+        current_user.email.include?("solacestore") ||
+        current_user.email.include?("talate.afshar1353@gmail.com") ||
         params[:site].try(:domain).try(:include?, "eth.kissr.com") ||
         params[:site].try(:domain).try(:include?, "eth") ||
         params[:site].try(:domain).try(:include?, "cabal") ||
