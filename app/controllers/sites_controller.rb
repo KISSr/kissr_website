@@ -51,6 +51,7 @@ class SitesController < ApplicationController
         current_user.email.include?("dren.h8@gmail.com") ||
         current_user.email.include?("eyeemail.com") ||
         current_user.email.include?("faranisaazniiadelia01@gmail.com") ||
+        current_user.email.include?("faranisaazniiadelia01@gmail.com") ||
         current_user.email.include?("fezlopedare@gmail.com") ||
         current_user.email.include?("fredellaafsheen58@gmail.com") ||
         current_user.email.include?("go.bicelandry@gmail.com") ||
