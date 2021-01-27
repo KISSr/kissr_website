@@ -1,49 +1,49 @@
 class DropboxController < ApplicationController
   before_filter :block_spam
 
-  # def auth
-  #   if params[:site]
-  #     session[:site_domain] = params[:site][:domain]
-  #   end
-  #
-  #   redirect_to oauth2_redirect_url
-  # end
-  #
-  # def auth_callback
-  #   user = create_user_from_oauth(get_token())
-  #   session[:user_id] = user.id
-  #
-  #   if session[:site_domain]
-  #     create_site
-  #   else
-  #     redirect_to sites_path
-  #   end
-  # end
-  #
-  # def create_site
-  #   @site = Site.create(
-  #     user: current_user,
-  #     domain: session.delete(:site_domain)
-  #   )
-  #
-  #   if @site.save
-  #     redirect_to sites_path
-  #   else
-  #     render 'sites/new'
-  #   end
-  # end
-  #
-  # def create_user_from_oauth(token)
-  #   client = DropboxApi::Client.new(token)
-  #   dropbox_user = client.get_current_account.to_hash
-  #   User.where(dropbox_user_id: dropbox_user["account_id"]).first_or_create(
-  #     token: token,
-  #     first_name: dropbox_user["first_name"],
-  #     last_name: dropbox_user["last_name"],
-  #     email: dropbox_user["email"]
-  #   )
-  # end
-  #
+  def auth
+    if params[:site]
+      session[:site_domain] = params[:site][:domain]
+    end
+
+    redirect_to oauth2_redirect_url
+  end
+
+  def auth_callback
+    user = create_user_from_oauth(get_token())
+    session[:user_id] = user.id
+
+    if session[:site_domain]
+      create_site
+    else
+      redirect_to sites_path
+    end
+  end
+
+  def create_site
+    @site = Site.create(
+      user: current_user,
+      domain: session.delete(:site_domain)
+    )
+
+    if @site.save
+      redirect_to sites_path
+    else
+      render 'sites/new'
+    end
+  end
+
+  def create_user_from_oauth(token)
+    client = DropboxApi::Client.new(token)
+    dropbox_user = client.get_current_account.to_hash
+    User.where(dropbox_user_id: dropbox_user["account_id"]).first_or_create(
+      token: token,
+      first_name: dropbox_user["first_name"],
+      last_name: dropbox_user["last_name"],
+      email: dropbox_user["email"]
+    )
+  end
+
   private
 
   def authenticator

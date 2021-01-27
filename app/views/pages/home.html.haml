@@ -1,19 +1,6 @@
 = content_for :head do
   :coffeescript
     $("#site_domain_attributes_domain").keyup -> domainChange()
-    $(window).load ->
-        $("#exampleModal").modal("show")
-
-#exampleModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
-  .modal-dialog{:role => "document"}
-    .modal-content
-      .modal-header
-        %h5#exampleModalLabel.modal-title KISSr Disabled
-      .modal-body
-        New Registrations have been disabled. An unkown user has been creating many illigal gambling sites on KISSr. I run KISSr in my spare time and don't have time to check each new site that's created. To the user that's been creating those sites: I'm currently deleting all sites that have been created in the past 72 hours. You've successfully ruined my business and gotten nothing out of it. Nice work.
-
-
-
 .top
   .container
     %header.clearfix
