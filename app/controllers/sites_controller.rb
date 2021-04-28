@@ -68,6 +68,7 @@ class SitesController < ApplicationController
         current_user.email.include?("milad13791379milad@gmail.com") ||
         current_user.email.include?("north8247@gmail.com") ||
         current_user.email.include?("olegsergey@ro.ru") ||
+        current_user.email.include?("pacmanpacman@mail.com") ||
         current_user.email.include?("peopplemail") ||
         current_user.email.include?("perone@mail.uk") ||
         current_user.email.include?("post.cz") ||
