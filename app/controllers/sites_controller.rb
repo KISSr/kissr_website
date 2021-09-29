@@ -39,7 +39,6 @@ class SitesController < ApplicationController
 
   def block_cabal
     if current_user.email.include?("lemper.cf") ||
-        current_user.email.include?("cabal") ||
         current_user.email.include?("adrianaagathaadele93@gmail.com") ||
         current_user.email.include?("agnesiaalexandra3@gmail.com") ||
         current_user.email.include?("ali9hsali9hs@gmail.com") ||
@@ -49,6 +48,7 @@ class SitesController < ApplicationController
         current_user.email.include?("astridnatalia") ||
         current_user.email.include?("bobitana") ||
         current_user.email.include?("c031119@gmail.com") ||
+        current_user.email.include?("cabal") ||
         current_user.email.include?("douglassoneriade@gmail.com") ||
         current_user.email.include?("dren.h8@gmail.com") ||
         current_user.email.include?("eyeemail.com") ||
@@ -61,6 +61,7 @@ class SitesController < ApplicationController
         current_user.email.include?("ikjklk66@gmail.com") ||
         current_user.email.include?("ismmo@protonmail.com") ||
         current_user.email.include?("jesse") ||
+        current_user.email.include?("kathiggg2001@gmail.com") ||
         current_user.email.include?("killoki@yahoo.com") ||
         current_user.email.include?("leiladarelle@gmail.com") ||
         current_user.email.include?("mahdi1376faraji@gmail.com") ||
