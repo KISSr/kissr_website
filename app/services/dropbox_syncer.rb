@@ -22,7 +22,7 @@ class DropboxSyncer
         if entry.to_hash[".tag"] == "file"
           client.download(entry.path_lower) do |body|
             object = bucket.object(entry.path_display[1..-1])
-            object.put({:body => body})  
+            object.put({acl: "public-read", body: body})  
           end
         end
       end
