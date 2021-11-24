@@ -4,7 +4,7 @@ ruby "2.5.1"
 
 gem 'aws-sdk-s3'
 gem 'bootstrap-sass'
-gem 'bourbon'
+gem 'bourbon', '~> 3.0.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'dropbox_api'
 gem "font-awesome-rails"
