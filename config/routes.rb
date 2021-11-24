@@ -8,4 +8,7 @@ NewKissr::Application.routes.draw do
   resource :account, only: :show
   root 'pages#show', id: 'home'
   get 'update', to: 'pages#show', id: 'update'
+  namespace :api do
+    resources :events, only: [:index, :create]
+  end
 end

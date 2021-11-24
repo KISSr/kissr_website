@@ -10,7 +10,11 @@ class DropboxController < ApplicationController
   end
 
   def auth_callback
-    user = create_user_from_oauth(get_token())
+    access_token = DropboxAuthenticator.new.auth_code.get_token(
+      params[:code],
+      redirect_uri: dropbox_auth_callback_url,
+    )
+    user = User.create_from_access_token(access_token)
     session[:user_id] = user.id
 
     if session[:site_domain]
@@ -33,33 +37,13 @@ class DropboxController < ApplicationController
     end
   end
 
-  def create_user_from_oauth(token)
-    client = DropboxApi::Client.new(token)
-    dropbox_user = client.get_current_account.to_hash
-    User.where(dropbox_user_id: dropbox_user["account_id"]).first_or_create(
-      token: token,
-      first_name: dropbox_user["first_name"],
-      last_name: dropbox_user["last_name"],
-      email: dropbox_user["email"]
-    )
-  end
 
   private
 
-  def authenticator
-    DropboxApi::Authenticator.new(ENV['DROPBOX_KEY'], ENV['DROPBOX_SECRET'])
-  end
-
-  def get_token
-    authenticator.get_token(
-      params[:code],
-      redirect_uri: dropbox_auth_callback_url
-    ).token
-  end
-
   def oauth2_redirect_url
-    authenticator.authorize_url(
-      redirect_uri: dropbox_auth_callback_url
+    DropboxAuthenticator.new.auth_code.authorize_url(
+      redirect_uri: dropbox_auth_callback_url,
+      token_access_type: 'offline',
     )
   end
 
