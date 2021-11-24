@@ -22,7 +22,11 @@ class DropboxSyncer
         if entry.to_hash[".tag"] == "file"
           client.download(entry.path_lower) do |body|
             object = bucket.object(entry.path_display[1..-1])
-            object.put({acl: "public-read", body: body})  
+            object.put({
+              acl: "public-read",
+              content_type: Rack::Mime::MIME_TYPES.fetch(File.extname(entry.path_display), 'application/octet-stream'),
+              body: body
+            })  
           end
         end
       end
