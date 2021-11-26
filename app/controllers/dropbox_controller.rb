@@ -1,5 +1,5 @@
 class DropboxController < ApplicationController
-  before_filter :block_spam
+  before_action :block_spam
 
   def auth
     if params[:site]

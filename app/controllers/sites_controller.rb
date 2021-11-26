@@ -1,7 +1,7 @@
 class SitesController < ApplicationController
-  before_filter :redirect_unless_subscriber, only: :new
-  before_filter :authorize
-  before_filter :block_cabal
+  before_action :redirect_unless_subscriber, only: :new
+  before_action :authorize
+  before_action :block_cabal
 
   def index
     @sites = current_user.sites.all

@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   include HighVoltage::StaticPage
   layout :layout_for_page
 
-  before_filter :redirect_if_logged_in
+  before_action :redirect_if_logged_in
 
   private
 

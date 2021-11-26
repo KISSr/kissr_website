@@ -4,8 +4,8 @@ ruby "2.5.1"
 
 gem 'aws-sdk-s3'
 gem 'bootstrap-sass'
-gem 'bourbon', '~> 3.0.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'bourbon', '~> 7.0.0'
+gem 'coffee-rails', '~> 5.0.0'
 gem 'dropbox_api'
 gem "font-awesome-rails"
 gem 'haml'
@@ -19,12 +19,12 @@ gem 'oauth2'
 gem 'pg'
 gem 'pry'
 gem 'rack-canonical-host'
-gem 'rails', '4.2.10'
+gem 'rails', '~> 6.1'
 gem 'rails_12factor'
-gem 'sass-rails', '~> 4.0.0'
-gem 'simple_form', '~> 3.1.0.rc1'
+gem 'sass-rails', '~> 6.0.0'
+gem 'simple_form', '~> 5.1'
 gem 'stripe'
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier', '>= 4.2.0'
 
 group :test do
   gem 'webmock'
