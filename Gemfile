@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby "2.5.1"
+ruby "3.0.3"
 
 gem 'aws-sdk-s3'
 gem 'bootstrap-sass'
@@ -15,6 +15,7 @@ gem 'high_voltage'
 gem 'inline_svg'
 gem 'jquery-rails'
 gem 'lodash-rails'
+gem 'puma'
 gem 'oauth2'
 gem 'pg'
 gem 'pry'
