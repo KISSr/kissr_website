@@ -7,11 +7,17 @@ class Api::EventsController < ApplicationController
   end
 
   def create
-    params[:list_folder][:accounts].each do |dropbox_user_id|
-      user = User.find_by_dropbox_user_id(dropbox_user_id)
-      dropbox_syncer = DropboxSyncer.new(user)
-      dropbox_syncer.sync
+    process = fork do
+      params[:list_folder][:accounts].each do |dropbox_user_id|
+        user = User.find_by_dropbox_user_id(dropbox_user_id)
+        dropbox_syncer = DropboxSyncer.new(user)
+        dropbox_syncer.sync
+      end
+
+      Process.kill("HUP")
     end
+
+    Process.detach(process)
 
     head :ok
   end
