@@ -1,6 +1,9 @@
 development: &default
   adapter: postgresql
   database: kissr_development
+production: &production
+  <<: *default
+  database: kissr
 
 test: &test
   <<: *default
